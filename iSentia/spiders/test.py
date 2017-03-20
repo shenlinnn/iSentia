@@ -1,12 +1,12 @@
 import scrapy
 from mercury_parser import ParserAPI
 from iSentia.items import IsentiaItem
-from iSentia.config import api_key
+from iSentia.config import api_key, domains, urls
 
 class myspider(scrapy.Spider):
     name = "iSentia"
-    allowed_domains = ["www.theguardian.com"]
-    start_urls = ["https://www.theguardian.com"] # starting url
+    allowed_domains = domains
+    start_urls = urls
 
     def parse(self, response):
         ## primary sections have class = 'global-navigation__title'
