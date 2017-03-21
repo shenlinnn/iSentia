@@ -7,7 +7,7 @@
 
 
 import pymongo
-
+from scrapy.exceptions import DropItem
 
 class IsentiaPipeline(object):
     collection_name = 'Articles'
@@ -35,3 +35,16 @@ class IsentiaPipeline(object):
         ## insert item into db
         self.db[self.collection_name].insert(dict(item))
         return item
+
+
+## check for duplicates and prevent them from inserting into db
+class DuplicatesPipeline(object):
+    def __init__(self):
+        self.title_seen = set()
+
+    def process_item(self, item, spider):
+        if item['title'] in self.title_seen:
+            raise DropItem("Repeated items found: %s" % item)
+        else:
+            self.title_seen.add(item['title'])
+            return item

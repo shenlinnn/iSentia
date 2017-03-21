@@ -48,8 +48,7 @@ class myspider(scrapy.Spider):
         item['author'] = p.author
         item['title'] = p.title
         ## parse the item to pipeline
-        #yield item
-        print item
+        yield item
 
 
 

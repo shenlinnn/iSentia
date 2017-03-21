@@ -2,7 +2,8 @@
 ###### News Crawl, Store and Search
 
 ### Crawl and Store
-Crawl the news information from the news website stated in the config file and store data into compose mongodb:
+Crawl the news information from the news website stated in the config file and store data into compose mongodb.
+Run in the folder iSentia/iSentia.
 > $ scrapy crawl iSentia
 
 ### Search

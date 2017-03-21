@@ -19,7 +19,8 @@ MONGO_URI = "mongodb://shenlin92:shenlin921002@aws-us-east-1-portal.23.dblayer.c
 MONGO_DB = "iSentia"
 
 ITEM_PIPELINES = {
-    'iSentia.pipelines.IsentiaPipeline': 300,
+    'iSentia.pipelines.DuplicatesPipeline': 100,
+    'iSentia.pipelines.IsentiaPipeline': 300
 }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
